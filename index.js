@@ -1,3 +1,11 @@
+/*
+COMMIT TO HERKOU
+
+git add .
+git commit -m "<commit message>"
+git push heroku master
+*/
+
 require('dotenv').config();
 const express = require("express");
 const authRoute = require("./routes/auth");
@@ -11,5 +19,3 @@ app.use('/api/user', authRoute);
 app.use('/api/posts', postRoute);
 
 app.listen(PORT, () => console.log(`Running on http://localhost:${PORT}`));
-
-//test
