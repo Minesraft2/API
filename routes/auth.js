@@ -3,6 +3,7 @@ const User = require('../model/User');
 const jwt = require('jsonwebtoken');
 const { registerValidation } = require('../validation');
 const bcrypt = require('bcryptjs');
+const verify = require('./verifyToken');
 
 const TOKEN_SECRET = process.env.TOKEN_SECRET;
 const ERRORS = {
@@ -10,6 +11,10 @@ const ERRORS = {
     TAKEN_EMAIL: "Email already in use.",
     INCORRECT_PASS: "Email or password is incorrect."
 }
+
+router.post('/', verify, async (req, res) => {
+    res.send(req.user);
+});
 
 router.post('/register', async (req, res) => {
     const { error } = registerValidation(req.body);
@@ -44,6 +49,7 @@ router.post('/login', async (req, res) => {
 
     const token = jwt.sign({ _id: user._id, password: user.password, createdAt: user.date }, TOKEN_SECRET);
     res.header('authentication', token).send(token);
-})
+});
+
 
 module.exports = router;
