@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 database/
 
+=======
+>>>>>>> 7b84e2114e2fc76a1ddb84456f975a9813fdc5da
 # Logs
 logs
 *.log
@@ -103,4 +106,8 @@ dist
 .dynamodb/
 
 # TernJS port file
+<<<<<<< HEAD
 .tern-port
+=======
+.tern-port
+>>>>>>> 7b84e2114e2fc76a1ddb84456f975a9813fdc5da
