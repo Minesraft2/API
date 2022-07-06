@@ -1,13 +1,15 @@
-/*
-COMMIT TO HERKOU
-
+/* COMMIT TO HERKOU
 git add .
 git commit -m "<commit message>"
-git push heroku master
-*/
+git push heroku master */
 
 require('dotenv').config();
 const express = require("express");
+
+const mongoose = require('mongoose');
+mongoose.connect(process.env.DB_CONNECT, () => console.log("Connected to DB!"))
+
+
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const app = express();
