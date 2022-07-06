@@ -1,9 +1,7 @@
 const router = require('express').Router();
 const User = require('../model/User');
 const jwt = require('jsonwebtoken');
-const jsoning = require("jsoning");
 const { registerValidation } = require('../validation');
-const fs = require('fs');
 const bcrypt = require('bcryptjs');
 
 const TOKEN_SECRET = process.env.TOKEN_SECRET;
@@ -49,7 +47,3 @@ router.post('/login', async (req, res) => {
 })
 
 module.exports = router;
-
-function allUsers() {
-    return fs.readdirSync('./database/users').map(x => JSON.parse(fs.readFileSync('./database/users/' + x, { encoding: 'utf-8' })));
-}
